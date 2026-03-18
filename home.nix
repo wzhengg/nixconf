@@ -24,7 +24,6 @@ inputs@{ config, pkgs, ... }:
 
     go
     gopls
-    gotools
 
     lua
     lua-language-server
