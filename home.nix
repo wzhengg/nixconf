@@ -34,15 +34,6 @@ inputs@{ config, pkgs, ... }:
 
   fonts.fontconfig.enable = true;
 
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    nix-direnv.enable = true;
-    config = {
-      warn_timeout = 0;
-    };
-  };
-
   programs.git = {
     enable = true;
     settings = {
