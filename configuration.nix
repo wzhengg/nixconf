@@ -1,4 +1,4 @@
-{
+inputs@{
   config,
   lib,
   pkgs,
@@ -6,9 +6,7 @@
 }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -30,13 +28,6 @@
   # Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -56,18 +47,47 @@
     packages = [ ];
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # List packages installed in system profile.
-  environment.systemPackages = [ ];
+  environment.systemPackages = with pkgs; [
+    brightnessctl
 
+    curl
+    gnumake
+    ripgrep
+
+    man-pages
+    man-pages-posix
+
+    gcc
+    gdb
+
+    go
+    gopls
+
+    lua
+    lua-language-server
+
+    nixd
+    nixfmt
+  ];
+
+  programs.firefox.enable = true;
   programs.fish.enable = true;
-
-  programs.vim.enable = true;
-
-  programs.tmux.enable = true;
-
+  programs.foot.enable = true;
+  programs.git.enable = true;
   programs.river-classic.enable = true;
-
+  programs.tmux.enable = true;
+  programs.vim.enable = true;
   programs.waybar.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    package = inputs.neovim-nightly.packages.${pkgs.system}.default;
+  };
 
   xdg.portal = {
     enable = true;
