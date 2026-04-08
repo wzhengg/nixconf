@@ -47,10 +47,6 @@ inputs@{
     packages = [ ];
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     brightnessctl
@@ -68,10 +64,6 @@ inputs@{
     go
     gopls
 
-    lua
-    lua-language-server
-
-    nixd
     nixfmt
   ];
 
