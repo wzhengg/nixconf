@@ -72,15 +72,12 @@ inputs@{
   programs.fish.enable = true;
   programs.foot.enable = true;
   programs.git.enable = true;
+  programs.neovim.enable = true;
   programs.river-classic.enable = true;
   programs.tmux.enable = true;
   programs.vim.enable = true;
   programs.waybar.enable = true;
 
-  programs.neovim = {
-    enable = true;
-    package = inputs.neovim-nightly.packages.${pkgs.system}.default;
-  };
 
   xdg.portal = {
     enable = true;
