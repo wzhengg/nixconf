@@ -64,7 +64,6 @@ inputs@{
     gdb
 
     go
-    gopls
 
     nixfmt
   ];
