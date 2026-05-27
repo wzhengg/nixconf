@@ -56,6 +56,7 @@ inputs@{
     gnumake
     ripgrep
     stow
+    universal-ctags
 
     man-pages
     man-pages-posix
