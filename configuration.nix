@@ -47,6 +47,8 @@ inputs@{
     packages = [ ];
   };
 
+  fonts.packages = with pkgs; [ source-code-pro ];
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     brightnessctl
@@ -55,18 +57,15 @@ inputs@{
     curl
     gnumake
     ripgrep
-    stow
-    universal-ctags
 
     man-pages
     man-pages-posix
 
     gcc
     gdb
-
     go
-
     nixfmt
+    universal-ctags
   ];
 
   programs.firefox.enable = true;
@@ -78,7 +77,6 @@ inputs@{
   programs.tmux.enable = true;
   programs.vim.enable = true;
   programs.waybar.enable = true;
-
 
   xdg.portal = {
     enable = true;
