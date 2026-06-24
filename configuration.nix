@@ -53,16 +53,12 @@ inputs@{
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    brightnessctl
-    wlsunset
-
     curl
     gnumake
     ripgrep
     stow
-
-    man-pages
-    man-pages-posix
+    unzip
+    wget
 
     gcc
     gdb
@@ -70,9 +66,14 @@ inputs@{
     nixfmt
     universal-ctags
 
-    kdePackages.kdenlive
+    man-pages
+    man-pages-posix
 
+    brightnessctl
     slurp
+    wlsunset
+
+    kdePackages.kdenlive
   ];
 
   programs.firefox.enable = true;
@@ -84,7 +85,11 @@ inputs@{
   programs.river-classic.enable = true;
   programs.steam.enable = true;
   programs.tmux.enable = true;
-  programs.vim.enable = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+    package = pkgs.vim-full;
+  };
   programs.waybar.enable = true;
 
   xdg.portal = {
