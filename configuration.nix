@@ -47,6 +47,8 @@ inputs@{
     packages = [ ];
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   fonts.packages = with pkgs; [ source-code-pro ];
 
   # List packages installed in system profile.
@@ -79,6 +81,7 @@ inputs@{
   programs.neovim.enable = true;
   programs.obs-studio.enable = true;
   programs.river-classic.enable = true;
+  programs.steam.enable = true;
   programs.tmux.enable = true;
   programs.vim.enable = true;
   programs.waybar.enable = true;
