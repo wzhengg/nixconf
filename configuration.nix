@@ -66,6 +66,7 @@ inputs@{
     go
     nixfmt
     universal-ctags
+    slurp
   ];
 
   programs.firefox.enable = true;
@@ -73,6 +74,7 @@ inputs@{
   programs.foot.enable = true;
   programs.git.enable = true;
   programs.neovim.enable = true;
+  programs.obs-studio.enable = true;
   programs.river-classic.enable = true;
   programs.tmux.enable = true;
   programs.vim.enable = true;
@@ -80,7 +82,16 @@ inputs@{
 
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    wlr = {
+      enable = true;
+      settings = {
+        screencast = {
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -p -f %o";
+        };
+      };
+    };
   };
 
   services.logind = {
