@@ -66,6 +66,9 @@ inputs@{
     go
     nixfmt
     universal-ctags
+
+    kdePackages.kdenlive
+
     slurp
   ];
 
