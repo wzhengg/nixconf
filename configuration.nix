@@ -59,6 +59,7 @@ inputs@{
     curl
     gnumake
     ripgrep
+    stow
 
     man-pages
     man-pages-posix
